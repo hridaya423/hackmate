@@ -1,103 +1,229 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import React, { useState, useEffect } from "react";
+import { Button } from "@/components/ui/Button";
+import { Card, CardContent, CardHeader } from "@/components/ui/Card";
+import { useRoughNotation } from "@/hooks/useRoughNotation";
+
+const HomePage = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsVisible(true), 800);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const communityRef = useRoughNotation({ 
+    type: 'highlight', 
+    color: '#fbbf24',
+    padding: 6,
+    strokeWidth: 2
+  }, isVisible);
+  
+  const collaborativeRef = useRoughNotation({ 
+    type: 'box', 
+    color: '#06d6a0',
+    padding: 6,
+    strokeWidth: 2
+  }, isVisible);
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="bg-gray-900 text-gray-100">
+      <div className="relative text-center py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+        <div className="relative z-10">
+          <h1 className="text-5xl font-extrabold sm:text-6xl md:text-7xl font-display text-white mb-4">
+            Hackmate
+          </h1>
+          <p className="mt-4 max-w-2xl mx-auto text-2xl font-semibold text-gray-300 font-handwritten">
+            Turn Code into <span ref={communityRef} className="text-gray-100">Community</span>.
+          </p>
+          <p className="mt-6 max-w-3xl mx-auto text-lg text-gray-400 leading-relaxed">
+            Spend at least <span className="font-mono text-emerald-400 font-bold">5 hours</span> building your collaborative app to earn <span className="font-bold text-emerald-400">$25</span> in cloud credits, or spend <span className="font-mono text-emerald-400 font-bold">10 hours</span> to earn <span className="font-bold text-emerald-400">$50</span> in credits or a <span className="font-bold text-emerald-400">Raspberry Pi 4 (2GB)</span>.
+          </p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              size="lg" 
+              className="text-lg px-8 py-4"
+              onClick={() => document.getElementById('tiers')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              See the Rewards
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline"
+              className="text-lg px-8 py-4"
+              onClick={() => window.open('https://fillout.com/hackmate-submission', '_blank')}
+            >
+              Submit Your Project
+            </Button>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+
+      <div className="py-20 bg-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-extrabold text-emerald-400 font-display mb-4">
+              How It Works
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              Build a collaborative app, ship it, and get rewarded.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="text-center" noTransform={true}>
+              <CardHeader>
+                <h3 className="text-2xl font-bold text-white font-display">1. Get an Idea</h3>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-400 leading-relaxed">
+                  Think of a multiplayer or <span ref={collaborativeRef} className="text-gray-300">collaborative</span> experience. A shared whiteboard? A multiplayer game? A group scheduler? Check out our{' '}
+                  <a href="/guide" className="text-emerald-400 hover:text-emerald-300 underline">
+                    guide
+                  </a>{' '}
+                  for ideas.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center">
+              <CardHeader>
+                <h3 className="text-2xl font-bold text-white font-display">2. Build & Ship It</h3>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-400 leading-relaxed">
+                  Use any tech stack you want. Build your app, push it to GitHub, and deploy it.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center">
+              <CardHeader>
+                <h3 className="text-2xl font-bold text-white font-display">3. Get Rewarded</h3>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-400 leading-relaxed">
+                  Submit your project. After it&apos;s reviewed, you&apos;ll earn your reward.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+
+      <div id="rewards" className="py-20 bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-extrabold text-emerald-400 font-display mb-4">
+              Rewards
+            </h2>
+            <p className="text-xl text-gray-400">Choose your reward based on time spent.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <Card className="text-center border-emerald-500/30">
+              <CardHeader>
+                <h3 className="text-3xl font-bold text-white mb-2 font-display">
+                  <span className="font-mono">5 Hours</span> = <span className="text-emerald-400">$25</span>
+                </h3>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-300 mb-6 leading-relaxed">
+                  Spend at least 5 hours building and ship your collaborative app to earn $25 in cloud credits.
+                </p>
+               
+              </CardContent>
+            </Card>
+
+            <Card className="text-center border-emerald-500/30">
+              <CardHeader>
+                <h3 className="text-3xl font-bold text-white mb-2 font-display">
+                  <span className="font-mono">10 Hours</span> = <span className="text-emerald-400">$50</span> or <span className="text-emerald-400">Pi 4</span>
+                </h3>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-300 mb-6 leading-relaxed">
+                  Spend at least 10 hours on your project to get $50 in cloud credits or a Raspberry Pi 4 (2GB).
+                </p>
+             
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center mt-12">
+            <Button 
+              size="lg"
+              onClick={() => window.open('https://fillout.com/hackmate-submission', '_blank')}
+            >
+              Submit Your Project
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      <div id="faq" className="py-20 bg-gray-800">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-extrabold text-emerald-400 font-display mb-4">
+              Frequently Asked Questions
+            </h2>
+          </div>
+          
+          <div className="space-y-8">
+            <Card>
+              <CardHeader>
+                <h3 className="text-2xl font-semibold text-white font-display">
+                  What counts as a &quot;collaborative&quot; project?
+                </h3>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-300 leading-relaxed">
+                  Any app where the core experience involves multiple users interacting with the same data at the same time. Think multiplayer games, collaborative drawing boards, shared document editors, voting apps, or shared music playlists. A blog with a comment section doesn&apos;t count; a document editor where people type together does.
+                </p>
+              </CardContent>
+            </Card>
+
+           
+
+            <Card>
+              <CardHeader>
+                <h3 className="text-2xl font-semibold text-white font-display">
+                  What technology can I use?
+                </h3>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-300 leading-relaxed">
+                  Anything! As long as it&apos;s deployed and open source. Check out our{' '}
+                  <a href="/guide" className="text-emerald-400 hover:text-emerald-300 underline">
+                    Getting Started Guide
+                  </a>{' '}
+                  for recommendations.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <h3 className="text-2xl font-semibold text-white font-display">
+                  Where can I get help?
+                </h3>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-300 leading-relaxed">
+                  The Hack Club Slack is the best place. We will have a dedicated{' '}
+                  <span className="font-mono bg-gray-700 text-emerald-400 px-2 py-1 rounded">
+                    #hackmate
+                  </span>{' '}
+                  channel for questions, sharing progress, and finding inspiration.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+export default HomePage;
