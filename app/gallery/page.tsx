@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -6,14 +7,12 @@ import { Button } from "@/components/ui/Button";
 
 interface Project {
   id: string;
-  name: string;
+  projectName: string;
+  codeUrl: string;
+  playableUrl?: string;
   description: string;
-  author: string;
-  demoUrl?: string;
-  githubUrl?: string;
-  imageUrl?: string;
-  hoursSpent: number;
-  submissionDate: string;
+  slackId: string;
+  screenshot?: string;
 }
 
 const GalleryPage = () => {
@@ -21,29 +20,34 @@ const GalleryPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
+  useEffect(() => { 
     const fetchProjects = async () => {
       try {
-        // This will be replaced with actual Airtable API call
-        // For now, using mock data
-        const mockProjects: Project[] = [
-          {
-            id: '1',
-            name: 'Multiplayer Chess',
-            description: 'Chess game with real-time moves and spectator mode.',
-            author: 'Sarah Johnson',
-            demoUrl: 'https://example.com/chess',
-            githubUrl: 'https://github.com/user/chess',
-            imageUrl: '/placeholder',
-            hoursSpent: 12,
-            submissionDate: '2024-01-10'
-          },
-
-        ];
-
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        setProjects(mockProjects);
-      } catch {
+        const params = new URLSearchParams({
+          filterByFormula: "{Status} = 'Approved'"
+        });
+        
+        const response = await fetch(`https://api2.hackclub.com/v0.1/Hackmate/Hackmate%20Project%20Submission?${params}`);
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch projects');
+        }
+        
+        const data = await response.json();
+        
+        const formattedProjects: Project[] = data.records?.map((record: any, index: number) => ({
+          id: record.id || index.toString(),
+          projectName: record.fields['Project Name'] || 'Untitled Project',
+          codeUrl: record.fields['Code URL'] || '',
+          playableUrl: record.fields['Playable URL'],
+          description: record.fields['Description'] || 'No description provided',
+          slackId: record.fields['Slack ID'] || 'Anonymous',
+          screenshot: record.fields['Screenshot']?.[0]?.url
+        })) || [];
+        
+        setProjects(formattedProjects);
+      } catch (error) {
+        console.error('Error fetching projects:', error);
         setError('Failed to load projects');
       } finally {
         setLoading(false);
@@ -105,7 +109,7 @@ const GalleryPage = () => {
           <div className="mt-8">
             <Button 
               size="lg"
-              onClick={() => window.open('https://fillout.com/hackmate-submission', '_blank')}
+              onClick={() => window.open('https://forms.hackclub.com/t/jAAFcfkEJ1us', '_blank')}
             >
               Submit Your Project
             </Button>
@@ -116,10 +120,10 @@ const GalleryPage = () => {
           {projects.map((project) => (
             <Card key={project.id} className="overflow-hidden">
               <div className="aspect-video bg-gray-800 flex items-center justify-center">
-                {project.imageUrl ? (
+                {project.screenshot ? (
                   <img 
-                    src={project.imageUrl} 
-                    alt={project.name}
+                    src={project.screenshot} 
+                    alt={project.projectName}
                     className="w-full h-full object-cover"
                   />
                 ) : (
@@ -129,32 +133,28 @@ const GalleryPage = () => {
               
               <CardHeader>
                 <div className="flex justify-between items-start">
-                  <h3 className="text-xl font-bold text-white font-display">{project.name}</h3>
-                  <span className="text-sm text-emerald-400 font-mono">{project.hoursSpent}h</span>
+                  <h3 className="text-xl font-bold text-white font-display">{project.projectName}</h3>
                 </div>
-                <p className="text-gray-400 text-sm">by {project.author}</p>
+                <p className="text-gray-400 text-sm">by {project.slackId}</p>
               </CardHeader>
               
               <CardContent>
                 <p className="text-gray-300 mb-4 leading-relaxed">{project.description}</p>
-                
-            
-                
                 <div className="flex gap-2">
-                  {project.demoUrl && (
+                  {project.playableUrl && (
                     <Button 
                       size="sm" 
                       variant="outline"
-                      onClick={() => window.open(project.demoUrl, '_blank')}
+                      onClick={() => window.open(project.playableUrl, '_blank')}
                     >
-                      Live Demo
+                      Demo
                     </Button>
                   )}
-                  {project.githubUrl && (
+                  {project.codeUrl && (
                     <Button 
                       size="sm" 
                       variant="ghost"
-                      onClick={() => window.open(project.githubUrl, '_blank')}
+                      onClick={() => window.open(project.codeUrl, '_blank')}
                     >
                       GitHub
                     </Button>
@@ -172,7 +172,7 @@ const GalleryPage = () => {
             <p className="text-gray-400 mb-8">Be the first to submit your collaborative app.</p>
             <Button 
               size="lg"
-              onClick={() => window.open('https://fillout.com/hackmate-submission', '_blank')}
+              onClick={() => window.open('https://forms.hackclub.com/t/jAAFcfkEJ1us', '_blank')}
             >
               Submit Your Project
             </Button>

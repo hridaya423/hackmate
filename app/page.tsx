@@ -52,7 +52,7 @@ const HomePage = () => {
               size="lg" 
               variant="outline"
               className="text-lg px-8 py-4"
-              onClick={() => window.open('https://fillout.com/hackmate-submission', '_blank')}
+              onClick={() => window.open('https://forms.hackclub.com/t/jAAFcfkEJ1us', '_blank')}
             >
               Submit Your Project
             </Button>
@@ -154,7 +154,7 @@ const HomePage = () => {
           <div className="text-center mt-12">
             <Button 
               size="lg"
-              onClick={() => window.open('https://fillout.com/hackmate-submission', '_blank')}
+              onClick={() => window.open('https://forms.hackclub.com/t/jAAFcfkEJ1us', '_blank')}
             >
               Submit Your Project
             </Button>
