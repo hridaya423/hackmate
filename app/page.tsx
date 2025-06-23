@@ -44,7 +44,7 @@ const HomePage = () => {
             <Button 
               size="lg" 
               className="text-lg px-8 py-4"
-              onClick={() => document.getElementById('tiers')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('rewards')?.scrollIntoView({ behavior: 'smooth' })}
             >
               See the Rewards
             </Button>
@@ -52,9 +52,9 @@ const HomePage = () => {
               size="lg" 
               variant="outline"
               className="text-lg px-8 py-4"
-              onClick={() => window.open('https://forms.hackclub.com/t/jAAFcfkEJ1us', '_blank')}
+              onClick={() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              Submit Your Project
+              Learn More
             </Button>
           </div>
         </div>

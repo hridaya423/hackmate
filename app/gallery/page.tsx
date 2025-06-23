@@ -16,7 +16,7 @@ interface Project {
 }
 
 const GalleryPage = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
+  const [projects, setProjects] = useState<Project[]>([]);  
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -104,7 +104,7 @@ const GalleryPage = () => {
             Project Gallery
           </h1>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Discover amazing apps built by the community.
+            Discover amazing apps built by the project.
           </p>
           <div className="mt-8">
             <Button 
@@ -167,15 +167,9 @@ const GalleryPage = () => {
 
         {projects.length === 0 && (
           <div className="text-center py-20">
-            <div className="text-6xl mb-4">🏗️</div>
             <h3 className="text-2xl font-bold text-white mb-4">No projects yet!</h3>
-            <p className="text-gray-400 mb-8">Be the first to submit your collaborative app.</p>
-            <Button 
-              size="lg"
-              onClick={() => window.open('https://forms.hackclub.com/t/jAAFcfkEJ1us', '_blank')}
-            >
-              Submit Your Project
-            </Button>
+            <p className="text-gray-400 mb-8">Be the first to submit your project.</p>
+           
           </div>
         )}
       </div>

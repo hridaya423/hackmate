@@ -8,7 +8,12 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Hackmate",
-  description: "A Hack Club program to inspire building collaborative, multiplayer applications.",
+  description: "A Hack Club YSWS for building collaborative, multiplayer applications.",
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
 };
 
 export default function RootLayout({
