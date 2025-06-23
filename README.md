@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# [Hackmate](https://hackmate.hackclub.dev)
 
-## Getting Started
+## Build Collaborative Apps, Get Cloud Credits & Hardware!
 
-First, run the development server:
+_A Hack Club YSWS where you build multiplayer/collaborative applications and earn cloud credits or a raspberry pi 4_
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Turn your coding skills into collaborative experiences! Build apps that bring people together from multiplayer games to real-time collaborative tools and get rewarded for the time you spend.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### How the Process Works
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Get an Idea** - Think of an app that needs multiple users to function (collaborative games, shared tools, real-time chat, etc.)
+2. **Set Up Hackatime** - Install the [Hackatime plugin](https://hackatime.hackclub.com/my/wakatime_setup) for your code editor to track your coding time
+3. **Code for 5+ Hours** - Spend at least 5 hours building (tracked via Hackatime) for $25 in cloud credits
+4. **Deploy & Submit** - Push your code to GitHub, deploy your app, and submit it for review
+5. **Get Rewarded** - Receive your rewards!
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Rewards
 
-## Learn More
+- **5 Hours** = **$25** in cloud credits
+- **10 Hours** = **$50** in cloud credits OR **Raspberry Pi 4 (2GB)**
 
-To learn more about Next.js, take a look at the following resources:
+### Requirements
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- ✅ **Multi-user Design** - Your app must require multiple users to function meaningfully  
+- ✅ **Real-time Technology** - Use WebSockets, Socket.io, WebRTC, or similar
+- ✅ **Minimum Time** - At least 5 hours of coding time
+- ✅ **Hackatime Tracking** - Mandatory for time verification
+- ✅ **Open Source** - Code must be on GitHub and app must be deployed
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Example Project Ideas
 
-## Deploy on Vercel
+- Collaborative pixel art canvas
+- Multiplayer tic-tac-toe or chess
+- Shared whiteboard for brainstorming  
+- Real-time chat application
+- Collaborative story-writing app
+- Synchronized pomodoro timer for study groups
+- Live voting or polling system
+- Multiplayer drawing game
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Getting Started
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Check out our [Getting Started Guide](https://hackmate.hackclub.dev/guide) for technical resources
+2. Browse the [Project Gallery](https://hackmate.hackclub.dev/gallery) for inspiration
+3. Join the `#hackmate` channel on Hack Club Slack for help and discussion
+4. Set up [Hackatime](https://hackatime.hackclub.com/my/wakatime_setup) before you start coding
+
+### Submission
+
+When you're ready to submit:
+1. Ensure your Hackatime shows at least 5 hours of coding time
+2. Deploy your app and make sure it's publicly accessible
+3. Push your code to a public GitHub repository
+4. Submit your project through our [submission form](https://forms.hackclub.com/t/jAAFcfkEJ1us)
+
+_Note: Your Slack email must be linked to your Hackatime account for time tracking verification._
+

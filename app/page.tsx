@@ -112,7 +112,65 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div id="rewards" className="py-20 bg-gray-900">
+      {/* Requirements Section */}
+      <div className="py-20 bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-extrabold text-emerald-400 font-display mb-4">
+              Project Requirements
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              Make sure your project meets these criteria to be eligible for rewards.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <Card className="border-emerald-500/30">
+              <CardHeader>
+                <h3 className="text-2xl font-bold text-white font-display flex items-center">
+                  <span className="text-emerald-400 mr-3">👥</span>
+                  Collaborative Design
+                </h3>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-300 leading-relaxed">
+                  Your app must <span className="text-emerald-400 font-semibold">require multiple users</span> to function meaningfully. Think multiplayer games, shared tools, real-time chat apps, or interactive experiences that only work when people participate together.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-emerald-500/30">
+              <CardHeader>
+                <h3 className="text-2xl font-bold text-white font-display flex items-center">
+                  <span className="text-emerald-400 mr-3">🔗</span>
+                  Real-time Technology
+                </h3>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-300 leading-relaxed">
+                  Use <span className="text-emerald-400 font-semibold">collaborative technology</span> like WebSockets, Socket.io, WebRTC, or similar. Your app should allow multiple users to interact in real-time.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-emerald-500/30">
+              <CardHeader>
+                <h3 className="text-2xl font-bold text-white font-display flex items-center">
+                  <span className="text-emerald-400 mr-3">⏱️</span>
+                  Time & Tracking
+                </h3>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-300 leading-relaxed">
+                  Spend <span className="text-emerald-400 font-semibold">at least 5 hours</span> building your project and use <span className="text-emerald-400 font-semibold">Hackatime</span> to track your coding time. Both are mandatory for reward eligibility.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+
+      <div id="rewards" className="py-20 bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-extrabold text-emerald-400 font-display mb-4">
@@ -179,29 +237,42 @@ const HomePage = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-300 leading-relaxed">
-                  Any app where the core experience involves multiple users interacting with the same data at the same time. Think multiplayer games, collaborative drawing boards, shared document editors, voting apps, or shared music playlists. A blog with a comment section doesn&apos;t count; a document editor where people type together does.
+                  Any app where the core experience involves multiple users interacting with the same data in real-time. Think multiplayer games, collaborative drawing boards, shared document editors, live voting apps, or synchronized music players. A blog with comments or a static portfolio doesn&apos;t count your app needs real-time, simultaneous user interaction.
                 </p>
               </CardContent>
             </Card>
-
-           
 
             <Card>
               <CardHeader>
                 <h3 className="text-2xl font-semibold text-white font-display">
-                  What technology can I use?
+                  Is Hackatime really mandatory?
                 </h3>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-300 leading-relaxed">
-                  Anything! As long as it&apos;s deployed and open source. Check out our{' '}
-                  <a href="/guide" className="text-emerald-400 hover:text-emerald-300 underline">
-                    Getting Started Guide
-                  </a>{' '}
-                  for recommendations.
+                  <span className="text-emerald-400 font-semibold">Yes, absolutely!</span> Hackatime is required for all participants. Install the plugin for your code editor (VS Code, IntelliJ, Sublime, etc.) and ensure it&apos;s tracking your coding sessions. We use this data to verify you&apos;ve met the minimum time requirements. Projects without proper Hackatime tracking will not be eligible for rewards.
                 </p>
               </CardContent>
             </Card>
+
+            <Card>
+              <CardHeader>
+                <h3 className="text-2xl font-semibold text-white font-display">
+                  What technology should I use?
+                </h3>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-300 leading-relaxed">
+                  Any tech stack that supports real-time features! Popular choices include Socket.io with Node.js, WebSockets, WebRTC, Firebase Realtime Database, Supabase Realtime, or Pusher. Your project must be deployed and open source. Check out our{' '}
+                  <a href="/guide" className="text-emerald-400 hover:text-emerald-300 underline">
+                    Getting Started Guide
+                  </a>{' '}
+                  for specific recommendations and tutorials.
+                </p>
+              </CardContent>
+            </Card>
+
+          
 
             <Card>
               <CardHeader>
@@ -211,11 +282,11 @@ const HomePage = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-300 leading-relaxed">
-                  The Hack Club Slack is the best place. We will have a dedicated{' '}
+                  Join the Hack Club Slack and head to the{' '}
                   <span className="font-mono bg-gray-700 text-emerald-400 px-2 py-1 rounded">
                     #hackmate
                   </span>{' '}
-                  channel for questions, sharing progress, and finding inspiration.
+                  channel for questions, team formation, progress sharing, and technical help. You can also find teammates there if you need a partner!
                 </p>
               </CardContent>
             </Card>

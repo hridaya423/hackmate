@@ -36,7 +36,27 @@ const GuidePage = () => {
 
           <Card>
             <CardHeader>
-              <h2 className="text-3xl font-bold text-white font-display">2. Get Inspired</h2>
+              <h2 className="text-3xl font-bold text-white font-display">2. Set Up Hackatime (Required)</h2>
+            </CardHeader>
+            <CardContent>
+              <p className="text-lg text-gray-300 mb-4 leading-relaxed">
+                <span className="text-emerald-400 font-semibold">Hackatime is mandatory</span> for tracking your coding time. You must have it set up before you start coding to be eligible for rewards.
+              </p>
+              
+              <a
+                href="https://hackatime.hackclub.com/my/wakatime_setup"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg transition-colors"
+              >
+                Set Up Hackatime →
+              </a>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <h2 className="text-3xl font-bold text-white font-display">3. Get Inspired</h2>
             </CardHeader>
             <CardContent>
               <p className="text-lg text-gray-300 mb-6 leading-relaxed">
@@ -73,7 +93,7 @@ const GuidePage = () => {
 
           <Card>
             <CardHeader>
-              <h2 className="text-3xl font-bold text-white font-display">3. Get Help</h2>
+              <h2 className="text-3xl font-bold text-white font-display">4. Get Help</h2>
             </CardHeader>
             <CardContent>
               <p className="text-lg text-gray-300 leading-relaxed">
