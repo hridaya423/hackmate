@@ -23,11 +23,7 @@ const GalleryPage = () => {
   useEffect(() => { 
     const fetchProjects = async () => {
       try {
-        const params = new URLSearchParams({
-          filterByFormula: "{Status} = 'Approved'"
-        });
-        
-        const response = await fetch(`https://api2.hackclub.com/v0.1/Hackmate/Hackmate%20Project%20Submission?${params}`);
+        const response = await fetch(`https://api2.hackclub.com/v0.1/Hackmate/Hackmate%20Project%20Submission`);
         
         if (!response.ok) {
           throw new Error('Failed to fetch projects');
@@ -35,7 +31,7 @@ const GalleryPage = () => {
         
         const data = await response.json();
         
-        const formattedProjects: Project[] = data.records?.map((record: any, index: number) => ({
+        const formattedProjects: Project[] = data?.map((record: any, index: number) => ({
           id: record.id || index.toString(),
           projectName: record.fields['Project Name'] || 'Untitled Project',
           codeUrl: record.fields['Code URL'] || '',
