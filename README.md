@@ -53,5 +53,7 @@ When you're ready to submit:
 3. Push your code to a public GitHub repository
 4. Submit your project through our [submission form](https://forms.hackclub.com/t/jAAFcfkEJ1us)
 
+**Deadline: July 15th** - Make sure to submit before the deadline to be eligible for rewards!
+
 _Note: Your Slack email must be linked to your Hackatime account for time tracking verification._
 
