@@ -125,7 +125,7 @@ const GalleryPage = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
+          {projects.filter(project => !project.description.includes('- REJECTED')).map((project) => (
             <Card key={project.id} className="overflow-hidden">
               <div className="aspect-video bg-gray-800 flex items-center justify-center">
                 {project.screenshot ? (
