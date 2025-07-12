@@ -282,7 +282,7 @@ const HomePage = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-300 leading-relaxed">
-                  Hackmate ends on <span className="text-emerald-400 font-semibold">July 15th</span>. Make sure to submit your project before the deadline to be eligible for rewards!
+                  Hackmate ends on <span className="text-emerald-400 font-semibold">July 17th</span>. Make sure to submit your project before the deadline to be eligible for rewards!
                 </p>
               </CardContent>
             </Card>
