@@ -14,7 +14,7 @@
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "rough-notation": "^0.5.1",
-    "tailwind-merge": "^3.5.0"
+    "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
